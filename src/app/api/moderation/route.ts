@@ -36,7 +36,7 @@ export async function POST(req: Request) {
   const requestBody = request.data;
 
   const flagged = requestBody.map((data: ModerationAPI) => {
-    console.log(data, ' data');
+    console.log(JSON.stringify(data), ' data');
     return +data.results[0].flagged;
   });
 
