@@ -37,7 +37,7 @@ export interface CategoryScores {
 export async function POST(req: Request) {
   const request = await req.json();
 
-  const requestBody: ModerationAPI = request[0];
+  const requestBody: ModerationAPI = request;
 
   const flagged = requestBody.data.map((data) => {
     return +data.results[0].flagged;
