@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server';
 
 export interface ModerationAPI {
-  data: ArrayElement[];
-}
-
-export interface ArrayElement {
   results: Data[];
 }
 
@@ -37,10 +33,10 @@ export interface CategoryScores {
 export async function POST(req: Request) {
   const request = await req.json();
 
-  console.log(request, ' request');
-  const requestBody: ModerationAPI = request.data;
+  const requestBody = request.data;
 
-  const flagged = requestBody.data.map((data) => {
+  const flagged = requestBody.map((data: ModerationAPI) => {
+    console.log(data, ' data');
     return +data.results[0].flagged;
   });
 
